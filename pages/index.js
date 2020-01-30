@@ -32,9 +32,14 @@ export default function Index() {
     return (
         <Container>
             <br/>
-            <Row><Col xs={12}>
+            <Row>
+                <Col xs={12} sm={ { span: 8, offset: 2 }}>
                 <h1>2019 Novel Coronavirus (2019-nCoV)</h1>
-                <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {data.lastUpdatedAt}. Please note, all data is from when tracking started, this might have changed by government policy at the time or national security. <strong style={{color: "#f1d3c9"}}>2019-nCoV have a sharp increase compared to the others. This might be because of better data, and not because the virus is spreading faster.</strong></p>
+                <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {data.lastUpdatedAt}.</p>
+                <p><strong>
+                    Due to the time difference between these disease outbreaks being on the order of years, it may not be fair to make an 'apples to apples' comparison between them.
+                    These charts are merely be to as informative as possible with the data we have at our disposal, but should be viewed with an open mind as many factors may have changed over the time span of years.
+                </strong></p>
             </Col>
                 <br/>
             </Row>
@@ -58,15 +63,15 @@ const Chart = ({title, data, id}) => {
             margin={{top: 5, right: 20, left: 10, bottom: 5}}
             syncId={id}
         >
-            <YAxis/>
+            <YAxis allowDataOverflow/>
             <XAxis dataKey="name"/>
             <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
-            <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"/>
-            <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2}
+            <CartesianGrid stroke="#000000" strokeDasharray="1 2" strokeWidth={1}/>
+            <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={1}
                   legendType={"triangle"}/>
-            <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={2}
+            <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={1}
                   legendType={"star"}/>
-                <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4} legendType={"circle"}/>
+            <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={2} legendType={"circle"}/>
             <Legend/>
         </LineChart>
         </ResponsiveContainer>
