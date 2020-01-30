@@ -38,10 +38,14 @@ export default function Index() {
             </Col>
                 <br/>
             </Row>
-            <Chart title="Deaths over 100 days" id="100days" data={death100} />
-            <Chart title="Infections over 100 days" id="100days" data={infected100} />
-            <Chart title="Deaths over 45 days" id="45days" data={death45} />
-            <Chart title="Infections over 45 days" id="45days" data={infected45} />
+            <Row>
+                <Col lg={6}><Chart title="Deaths over 100 days" id="100days" data={death100}/></Col>
+                <Col lg={6}><Chart title="Infections over 100 days" id="100days" data={infected100}/></Col>
+            </Row>
+            <Row>
+                <Col lg={6}><Chart title="Deaths over 45 days" id="45days" data={death45}/></Col>
+                <Col lg={6}><Chart title="Infections over 45 days" id="45days" data={infected45}/></Col>
+            </Row>
         </Container>
     )
 }
