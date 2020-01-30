@@ -4,7 +4,6 @@
     <list default="true" id="407e1567-239d-4a62-a733-09291677953f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580380765435</updated>
       <workItem from="1580380766805" duration="9662000" />
-      <workItem from="1580392113624" duration="2294000" />
+      <workItem from="1580392113624" duration="2734000" />
     </task>
     <task id="LOCAL-00001" summary="config server">
       <created>1580391834293</created>
@@ -186,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580392953202</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="allow tooltip to escape">
+      <created>1580394587134</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580394587134</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,17 +204,18 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="responsive grid" />
     <MESSAGE value="show nCoV on top of the others" />
-    <option name="LAST_COMMIT_MESSAGE" value="show nCoV on top of the others" />
+    <MESSAGE value="allow tooltip to escape" />
+    <option name="LAST_COMMIT_MESSAGE" value="allow tooltip to escape" />
   </component>
   <component name="WindowStateProjectService">
     <state x="822" y="253" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580392649246">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="822" y="253" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392649246" />
-    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2" timestamp="1580392953100">
+    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2" timestamp="1580394587034">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392953100" />
+    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580394587034" />
     <state x="2503" y="126" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580392512495" />
     <state width="1878" height="417" key="GridCell.Tab.0.bottom" timestamp="1580392747306">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -234,10 +241,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="792" y="267" width="325" height="579" key="RollbackChangesDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580391892234" />
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580392953780">
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580394588976">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392953780" />
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580394588976" />
     <state x="2475" y="269" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580392516284" />
     <state x="1920" y="0" width="1876" height="1015" key="dock-window-1" timestamp="1580386837109">
       <screen x="1920" y="0" width="1920" height="1080" />

@@ -34,7 +34,7 @@ export default function Index() {
             <br/>
             <Row><Col xs={12}>
                 <h1>2019 Novel Coronavirus (2019-nCoV)</h1>
-                <p className={"text-center"}>Last updated: {data.lastUpdatedAt}</p>
+                <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {data.lastUpdatedAt}. Please note, all data is from when tracking started, this might have changed by government policy at the time or national security. <strong style={{color: "#f1d3c9"}}>2019-nCoV have a sharp increase compared to the others. This might be because of better data, and not because the virus is spreading faster.</strong></p>
             </Col>
                 <br/>
             </Row>
