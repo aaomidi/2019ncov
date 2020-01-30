@@ -51,6 +51,43 @@ export default function Index() {
                 <Col lg={6}><Chart title="Deaths over 45 days" id="45days" data={death45}/></Col>
                 <Col lg={6}><Chart title="Infections over 45 days" id="45days" data={infected45}/></Col>
             </Row>
+            <Row>
+                <Col>
+                    <table className={"table text-white"}>
+                        <thead>
+                        <tr>
+                            <th/>
+                            <th>Tracking started</th>
+                            <th>Source</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>2019 Novel Coronavirus (2019-nCoV)</th>
+                                <td>{data.trackingStarted['2019-nCoV']}</td>
+                                <td><a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></td>
+                            </tr>
+                            <tr>
+                                <th>2003 SARS</th>
+                                <td>{data.trackingStarted['SARS']}</td>
+                                <td><a href={data.source['SARS']}>{data.source['SARS']}</a></td>
+                            </tr>
+                            <tr>
+                                <th>2009 Swine Flu</th>
+                                <td>{data.trackingStarted['Swine Flue']}</td>
+                                <td><a href={data.source['Swine Flue']}>{data.source['Swine Flue']}</a></td>
+                            </tr>
+                            <tr className={"text-muted"}>
+                                <td colSpan={3}>Only confirmed numbers are used</td>
+                            </tr>
+                            <tr className={"text-muted"}>
+                                <td>Sourcecode for page:</td>
+                                <td colSpan={2}><a  href="https://github.com/Richard87/2019ncov">https://github.com/Richard87/2019ncov</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </Col>
+            </Row>
         </Container>
     )
 }
