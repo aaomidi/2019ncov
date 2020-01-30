@@ -62,12 +62,11 @@ const Chart = ({title, data, id}) => {
             <XAxis dataKey="name"/>
             <Tooltip style={{background: "#0c0c0c"}}/>
             <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"/>
-            <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4}
-                  legendType={"circle"}/>
             <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2}
                   legendType={"triangle"}/>
             <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={2}
                   legendType={"star"}/>
+                <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4} legendType={"circle"}/>
             <Legend/>
         </LineChart></ResponsiveContainer>
         <br/><br/>

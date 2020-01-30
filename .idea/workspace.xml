@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="407e1567-239d-4a62-a733-09291677953f" name="Default Changelist" comment="">
+    <list default="true" id="407e1567-239d-4a62-a733-09291677953f" name="Default Changelist" comment="show nCoV on top of the others">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
@@ -127,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580380765435</updated>
       <workItem from="1580380766805" duration="9662000" />
-      <workItem from="1580392113624" duration="727000" />
+      <workItem from="1580392113624" duration="833000" />
     </task>
     <task id="LOCAL-00001" summary="config server">
       <created>1580391834293</created>
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580392695237</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="responsive grid">
+      <created>1580392864250</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580392864250</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,17 +188,18 @@
     <MESSAGE value="config server" />
     <MESSAGE value="Responsive graph" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="responsive grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="responsive grid" />
   </component>
   <component name="WindowStateProjectService">
     <state x="822" y="253" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580392649246">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="822" y="253" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392649246" />
-    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2" timestamp="1580392695137">
+    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2" timestamp="1580392931039">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392695137" />
+    <state x="583" y="150" width="744" height="813" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392931039" />
     <state x="2503" y="126" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580392512495" />
     <state width="1878" height="417" key="GridCell.Tab.0.bottom" timestamp="1580392747306">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -217,10 +225,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="792" y="267" width="325" height="579" key="RollbackChangesDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580391892234" />
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580392695735">
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1580392864879">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392695735" />
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1580392864879" />
     <state x="2475" y="269" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1580392516284" />
     <state x="1920" y="0" width="1876" height="1015" key="dock-window-1" timestamp="1580386837109">
       <screen x="1920" y="0" width="1920" height="1080" />
