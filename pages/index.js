@@ -1,7 +1,7 @@
 import React, {useMemo} from "react"
 import "./index.scss"
 import {Card, Col, Container, Row} from "react-bootstrap";
-import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer} from "recharts"
+import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer, YAxis, Label} from "recharts"
 import data from "../data.json"
 
 const keys = ["2019-nCoV", "Swine Flu", "SARS"]
@@ -52,15 +52,15 @@ export default function Index() {
 
 const Chart = ({title, data, id}) => {
     return <div>
-        <h2>{title}</h2>
         <ResponsiveContainer width={"99%"} height={400}>
             <LineChart
             data={data}
             margin={{top: 5, right: 20, left: 10, bottom: 5}}
             syncId={id}
         >
+            <YAxis/>
             <XAxis dataKey="name"/>
-            <Tooltip style={{background: "#0c0c0c"}}/>
+            <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
             <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"/>
             <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2}
                   legendType={"triangle"}/>
@@ -68,7 +68,9 @@ const Chart = ({title, data, id}) => {
                   legendType={"star"}/>
                 <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4} legendType={"circle"}/>
             <Legend/>
-        </LineChart></ResponsiveContainer>
+        </LineChart>
+        </ResponsiveContainer>
+        <h6>{title}</h6>
         <br/><br/>
     </div>
 }
