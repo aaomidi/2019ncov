@@ -1,38 +1,33 @@
 {
-  "devFiles": [],
+  "devFiles": [
+    "static/development/dll/dll_d6a88dbe3071bd165157.js",
+    "static/development/dll/dll_d6a88dbe3071bd165157.js.map"
+  ],
   "pages": {
     "/": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/framework.74d547792b3163b4d6d2.js",
-      "static/chunks/commons.11130b73da280613186c.js",
-      "static/css/styles.66297155.chunk.css",
-      "static/chunks/styles.ec2544fd1d086dca6f20.js",
-      "static/runtime/main-6d4e0728ff0717e2f903.js"
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
     ],
     "/_app": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/framework.74d547792b3163b4d6d2.js",
-      "static/chunks/commons.11130b73da280613186c.js",
-      "static/chunks/7a188031a3d6e5a9d883d1ecf6fad38f752ce3f0.8e05c9692174fd8f34af.js",
-      "static/runtime/main-6d4e0728ff0717e2f903.js",
-      "static/6RfR2bsMabBYx6TalP9pM/_buildManifest.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js",
+      "static/development/_buildManifest.js"
     ],
     "/_error": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/framework.74d547792b3163b4d6d2.js",
-      "static/chunks/commons.11130b73da280613186c.js",
-      "static/runtime/main-6d4e0728ff0717e2f903.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_polyfills": [
-      "static/runtime/polyfills-2fff68c13affbed5c162.js"
+      "static/runtime/polyfills.js",
+      "static/runtime/polyfills.js.map"
     ],
     "/index": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/framework.74d547792b3163b4d6d2.js",
-      "static/chunks/commons.11130b73da280613186c.js",
-      "static/css/styles.66297155.chunk.css",
-      "static/chunks/styles.ec2544fd1d086dca6f20.js",
-      "static/runtime/main-6d4e0728ff0717e2f903.js"
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
     ]
   }
 }

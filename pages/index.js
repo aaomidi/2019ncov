@@ -38,15 +38,15 @@ export default function Index() {
             </Col>
                 <br/>
             </Row>
-            <Chart title="Deaths over 100 days" data={death100} />
-            <Chart title="Infections over 100 days" data={infected100} />
-            <Chart title="Deaths over 45 days" data={death45} />
-            <Chart title="Infections over 45 days" data={infected45} />
+            <Chart title="Deaths over 100 days" id="100days" data={death100} />
+            <Chart title="Infections over 100 days" id="100days" data={infected100} />
+            <Chart title="Deaths over 45 days" id="45days" data={death45} />
+            <Chart title="Infections over 45 days" id="45days" data={infected45} />
         </Container>
     )
 }
 
-const Chart = ({title, data}) => {
+const Chart = ({title, data, id}) => {
     return <div>
         <h2>{title}</h2>
         <LineChart
@@ -54,10 +54,11 @@ const Chart = ({title, data}) => {
             height={400}
             data={data}
             margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+            syncId={id}
         >
             <XAxis dataKey="name" />
             <Tooltip style={{background: "#0c0c0c"}} />
-            <CartesianGrid stroke="#000000" strokeDasharray="5 5"  />
+            <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"  />
             <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4} legendType={"circle"} />
             <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2} legendType={"triangle"}/>
             <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={2} legendType={"star"}/>

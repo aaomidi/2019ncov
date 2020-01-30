@@ -65333,6 +65333,7 @@ function Index() {
     __self: this
   })), __jsx(Chart, {
     title: "Deaths over 100 days",
+    id: "100days",
     data: death100,
     __source: {
       fileName: _jsxFileName,
@@ -65341,6 +65342,7 @@ function Index() {
     __self: this
   }), __jsx(Chart, {
     title: "Infections over 100 days",
+    id: "100days",
     data: infected100,
     __source: {
       fileName: _jsxFileName,
@@ -65349,6 +65351,7 @@ function Index() {
     __self: this
   }), __jsx(Chart, {
     title: "Deaths over 45 days",
+    id: "45days",
     data: death45,
     __source: {
       fileName: _jsxFileName,
@@ -65357,6 +65360,7 @@ function Index() {
     __self: this
   }), __jsx(Chart, {
     title: "Infections over 45 days",
+    id: "45days",
     data: infected45,
     __source: {
       fileName: _jsxFileName,
@@ -65368,7 +65372,8 @@ function Index() {
 
 var Chart = function Chart(_ref) {
   var title = _ref.title,
-      data = _ref.data;
+      data = _ref.data,
+      id = _ref.id;
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
@@ -65391,6 +65396,7 @@ var Chart = function Chart(_ref) {
       left: 10,
       bottom: 5
     },
+    syncId: id,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 52
@@ -65400,7 +65406,7 @@ var Chart = function Chart(_ref) {
     dataKey: "name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 59
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Tooltip"], {
@@ -65409,15 +65415,17 @@ var Chart = function Chart(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 60
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["CartesianGrid"], {
     stroke: "#000000",
-    strokeDasharray: "5 5",
+    x: 10,
+    y: 10,
+    strokeDasharray: "1 3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 61
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Line"], {
@@ -65430,7 +65438,7 @@ var Chart = function Chart(_ref) {
     legendType: "circle",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Line"], {
@@ -65443,7 +65451,7 @@ var Chart = function Chart(_ref) {
     legendType: "triangle",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Line"], {
@@ -65456,25 +65464,25 @@ var Chart = function Chart(_ref) {
     legendType: "star",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 64
     },
     __self: this
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Legend"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 65
     },
     __self: this
   })), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 67
     },
     __self: this
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 67
     },
     __self: this
   }));
