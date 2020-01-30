@@ -1,0 +1,19 @@
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+$body-bg:                   $gray-900;
+$body-color:              $white;
+
+body, html {
+  background: $body-bg;
+  color: $body-color;
+}
+
+.recharts-default-tooltip {
+  background: $gray-800 !important;
+  color: $body-color;
+}
+
+h1,h2,h3,h4 {
+  text-align: center;
+}
