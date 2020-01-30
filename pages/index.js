@@ -94,6 +94,7 @@ export default function Index() {
 
 const Chart = ({title, data, id}) => {
     return <div>
+        <h6>{title}</h6>
         <ResponsiveContainer width={"99%"} height={400}>
             <LineChart
             data={data}
@@ -112,7 +113,6 @@ const Chart = ({title, data, id}) => {
             <Legend/>
         </LineChart>
         </ResponsiveContainer>
-        <h6>{title}</h6>
         <br/><br/>
     </div>
 }
