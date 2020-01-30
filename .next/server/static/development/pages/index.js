@@ -254,9 +254,15 @@ const Chart = ({
       lineNumber: 51
     },
     __self: undefined
-  }, title), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["LineChart"], {
-    width: 1068,
+  }, title), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["ResponsiveContainer"], {
+    width: "99%",
     height: 400,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["LineChart"], {
     data: data,
     margin: {
       top: 5,
@@ -267,14 +273,14 @@ const Chart = ({
     syncId: id,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: undefined
   }, __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["XAxis"], {
     dataKey: "name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 58
     },
     __self: undefined
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Tooltip"], {
@@ -283,7 +289,7 @@ const Chart = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 59
     },
     __self: undefined
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["CartesianGrid"], {
@@ -293,7 +299,7 @@ const Chart = ({
     strokeDasharray: "1 3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 60
     },
     __self: undefined
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Line"], {
@@ -306,7 +312,7 @@ const Chart = ({
     legendType: "circle",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 61
     },
     __self: undefined
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Line"], {
@@ -332,25 +338,25 @@ const Chart = ({
     legendType: "star",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 65
     },
     __self: undefined
   }), __jsx(recharts__WEBPACK_IMPORTED_MODULE_3__["Legend"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 67
     },
     __self: undefined
-  })), __jsx("br", {
+  }))), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 69
     },
     __self: undefined
   }), __jsx("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 69
     },
     __self: undefined
   }));

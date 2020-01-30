@@ -1,7 +1,7 @@
 import React, {useMemo} from "react"
 import "./index.scss"
 import {Card, Col, Container, Row} from "react-bootstrap";
-import {LineChart, Tooltip,XAxis,CartesianGrid,Line, Legend} from "recharts"
+import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer} from "recharts"
 import data from "../data.json"
 
 const keys = ["2019-nCoV", "Swine Flu", "SARS"]
@@ -49,21 +49,23 @@ export default function Index() {
 const Chart = ({title, data, id}) => {
     return <div>
         <h2>{title}</h2>
-        <LineChart
-            width={1068}
-            height={400}
+        <ResponsiveContainer width={"99%"} height={400}>
+            <LineChart
             data={data}
-            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+            margin={{top: 5, right: 20, left: 10, bottom: 5}}
             syncId={id}
         >
-            <XAxis dataKey="name" />
-            <Tooltip style={{background: "#0c0c0c"}} />
-            <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"  />
-            <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4} legendType={"circle"} />
-            <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2} legendType={"triangle"}/>
-            <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={2} legendType={"star"}/>
+            <XAxis dataKey="name"/>
+            <Tooltip style={{background: "#0c0c0c"}}/>
+            <CartesianGrid stroke="#000000" x={10} y={10} strokeDasharray="1 3"/>
+            <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={4}
+                  legendType={"circle"}/>
+            <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={2}
+                  legendType={"triangle"}/>
+            <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={2}
+                  legendType={"star"}/>
             <Legend/>
-        </LineChart>
+        </LineChart></ResponsiveContainer>
         <br/><br/>
     </div>
 }
