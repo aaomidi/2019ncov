@@ -3,10 +3,11 @@ import "./index.scss"
 import {Card, CardDeck, Col, Container, Form, FormCheck, FormGroup, Row} from "react-bootstrap";
 import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer, YAxis, Label} from "recharts"
 import data from "../data.json"
-
+import { scaleLog } from 'd3-scale';
+const scale = scaleLog().base(10);
 const keys = ["2019-nCoV", "Swine Flu", "SARS"]
 
-const calculate = (days, category, showLog) => {
+const calculate = (days, category) => {
     const tmp = []
 
     for (let x = 0; x < days; x++) {
@@ -15,7 +16,6 @@ const calculate = (days, category, showLog) => {
                 tmp[x] = {'name': 'Day ' + (x+1)}
 
             let amount = data[category][decease][x];
-            amount = showLog && amount ? Math.log(amount) : amount
             tmp[x][decease] = amount ? amount : null
         })
     }
@@ -28,12 +28,10 @@ export default function Index() {
     const [activeKeys, setActiveKeys] = useState(keys);
     const [show45Days, setShow45Days] = useState(false)
 
-    const death100 = useMemo(() => calculate(100, 'deaths', showLog), [showLog])
-    const death45 = useMemo(() => calculate(45, 'deaths', showLog), [showLog])
-    const infected100 = useMemo(() => calculate(100, 'infected', showLog), [showLog])
-    const infected45 = useMemo(() => calculate(45, 'infected', showLog), [showLog])
-
-    console.log(death45)
+    const death100 = useMemo(() => calculate(100, 'deaths'), [])
+    const death45 = useMemo(() => calculate(45, 'deaths'), [])
+    const infected100 = useMemo(() => calculate(100, 'infected'), [])
+    const infected45 = useMemo(() => calculate(45, 'infected'), [])
 
     const onToggle = (args) => (e) => {
         console.log(args, e)
