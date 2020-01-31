@@ -122,7 +122,7 @@ const Chart = ({title, data, id, activeKeys, showLog}) => {
             margin={{top: 5, right: 20, left: 10, bottom: 5}}
             syncId={id}
         >
-            <YAxis allowDataOverflow scale={showLog ? 'log' : 'linear'} domain={['auto', 'auto']} />
+            <YAxis allowDataOverflow scale={showLog ? 'log' : 'linear'} ticks={showLog ? [1,10,100,1000,10000,100000] : undefined} domain={['auto', 'auto']} />
             <XAxis dataKey="name"/>
             <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
             <CartesianGrid stroke="#000000" strokeDasharray="1 2" strokeWidth={1}/>
