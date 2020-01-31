@@ -1,12 +1,12 @@
-import React, {useMemo} from "react"
+import React, {useMemo, useState} from "react"
 import "./index.scss"
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Card, Col, Container, Form, FormCheck, FormGroup, Row} from "react-bootstrap";
 import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer, YAxis, Label} from "recharts"
 import data from "../data.json"
 
 const keys = ["2019-nCoV", "Swine Flu", "SARS"]
 
-const calculate = (days, category) => {
+const calculate = (days, category, showLog) => {
     const tmp = []
 
     for (let x = 0; x < days; x++) {
@@ -15,7 +15,8 @@ const calculate = (days, category) => {
                 tmp[x] = {'name': 'Day ' + (x+1)}
 
             let amount = data[category][decease][x];
-            tmp[x][decease] = amount ? amount : NaN
+            amount = showLog && amount ? Math.log(amount) : amount
+            tmp[x][decease] = amount ? amount : null
         })
     }
 
@@ -23,11 +24,25 @@ const calculate = (days, category) => {
 }
 
 export default function Index() {
-    const death100 = useMemo(() => calculate(100, 'deaths'), [])
-    const death45 = useMemo(() => calculate(45, 'deaths'), [])
-    const infected100 = useMemo(() => calculate(100, 'infected'), [])
-    const infected45 = useMemo(() => calculate(45, 'infected'), [])
+    const [showLog, setShowLog] = useState(false)
+    const [activeKeys, setActiveKeys] = useState(keys);
+    const [show45Days, setShow45Days] = useState(false)
 
+    const death100 = useMemo(() => calculate(100, 'deaths', showLog), [showLog])
+    const death45 = useMemo(() => calculate(45, 'deaths', showLog), [showLog])
+    const infected100 = useMemo(() => calculate(100, 'infected', showLog), [showLog])
+    const infected45 = useMemo(() => calculate(45, 'infected', showLog), [showLog])
+
+    console.log(death45)
+
+    const onToggle = (args) => (e) => {
+        console.log(args, e)
+        if (e.target.checked) {
+            setActiveKeys([...activeKeys, args])
+        } else {
+            setActiveKeys(activeKeys.filter(d => d !== args))
+        }
+    }
 
     return (
         <Container>
@@ -44,55 +59,64 @@ export default function Index() {
                 <br/>
             </Row>
             <Row>
-                <Col lg={6}><Chart title="Deaths over 100 days" id="100days" data={death100}/></Col>
-                <Col lg={6}><Chart title="Infections over 100 days" id="100days" data={infected100}/></Col>
+                <Col xs={12}>
+                    <Form inline className={"justify-content-around"}>
+                        <FormGroup controlId="showSwineFlu">
+                            <FormCheck checked={activeKeys.includes("Swine Flu")} onChange={onToggle("Swine Flu")} label={"Show Swine Flu"} custom/>
+                        </FormGroup>
+                        <FormGroup controlId="showSARS">
+                            <FormCheck checked={activeKeys.includes("SARS")} onChange={onToggle("SARS")} label={"Show SARS"} custom/>
+                        </FormGroup>
+                        <FormGroup controlId="show2019-nCoV">
+                            <FormCheck checked={activeKeys.includes("2019-nCoV")} onChange={onToggle("2019-nCoV")} label={"Show 2019-nCoV"} custom/>
+                        </FormGroup>
+                        <FormGroup controlId="show45Days">
+                            <FormCheck checked={show45Days} onChange={() => setShow45Days(!show45Days)} label={"Show 45day chart"} custom/>
+                        </FormGroup>
+                        <FormGroup controlId="showLog">
+                            <FormCheck checked={showLog} onChange={() => setShowLog(!showLog)} label={"Use log scale"} custom/>
+                        </FormGroup>
+                    </Form>
+            </Col></Row>
+            <br/><br/>
+            <Row>
+                <Col lg={6}><Chart showLog={showLog} title={`Deaths`} id="chart" activeKeys={activeKeys} data={show45Days ? death45 : death100}/></Col>
+                <Col lg={6}><Chart showLog={showLog} title={`Infections`} id="chart" activeKeys={activeKeys} data={show45Days ? infected45 : infected100}/></Col>
             </Row>
             <Row>
-                <Col lg={6}><Chart title="Deaths over 45 days" id="45days" data={death45}/></Col>
-                <Col lg={6}><Chart title="Infections over 45 days" id="45days" data={infected45}/></Col>
-            </Row>
-            <Row>
-                <Col>
-                    <table className={"table text-white"}>
-                        <thead>
-                        <tr>
-                            <th/>
-                            <th>Tracking started</th>
-                            <th>Source</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>2019 Novel Coronavirus (2019-nCoV)</th>
-                                <td>{data.trackingStarted['2019-nCoV']}</td>
-                                <td><a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></td>
-                            </tr>
-                            <tr>
-                                <th>2003 SARS</th>
-                                <td>{data.trackingStarted['SARS']}</td>
-                                <td><a href={data.source['SARS']}>{data.source['SARS']}</a></td>
-                            </tr>
-                            <tr>
-                                <th>2009 Swine Flu</th>
-                                <td>{data.trackingStarted['Swine Flue']}</td>
-                                <td><a href={data.source['Swine Flue']}>{data.source['Swine Flue']}</a></td>
-                            </tr>
-                            <tr className={"text-muted"}>
-                                <td colSpan={3}>Only confirmed numbers are used</td>
-                            </tr>
-                            <tr className={"text-muted"}>
-                                <td>Sourcecode for page:</td>
-                                <td colSpan={2}><a  href="https://github.com/Richard87/2019ncov">https://github.com/Richard87/2019ncov</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <Col sm={4}>
+                    <Card>
+                        <Card.Header>2019 Novel Coronavirus (2019-nCoV)</Card.Header>
+                        <Card.Body>
+                            <p>Tracking started {data.trackingStarted['2019-nCoV']}</p>
+                            <p>Source: <a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col sm={4}>
+                    <Card>
+                        <Card.Header>2003 SARS</Card.Header>
+                        <Card.Body>
+                            <p>Tracking started {data.trackingStarted['SARS']}</p>
+                            <p>Source: <a href={data.source['SARS']}>{data.source['SARS']}</a></p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col sm={4}>
+                    <Card>
+                        <Card.Header>2009 Swine Flu</Card.Header>
+                        <Card.Body>
+                            <p>Tracking started {data.trackingStarted['Swine Flue']}</p>
+                            <p>Source: <a href={data.source['Swine Flue']}>{data.source['Swine Flue']}</a></p>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
         </Container>
     )
 }
 
-const Chart = ({title, data, id}) => {
+const Chart = ({title, data, id, activeKeys, showLog}) => {
     return <div>
         <h6>{title}</h6>
         <ResponsiveContainer width={"99%"} height={400}>
@@ -101,15 +125,34 @@ const Chart = ({title, data, id}) => {
             margin={{top: 5, right: 20, left: 10, bottom: 5}}
             syncId={id}
         >
-            <YAxis allowDataOverflow/>
+            <YAxis allowDataOverflow scale={showLog ? 'log' : 'linear'} domain={['auto', 'auto']} />
             <XAxis dataKey="name"/>
             <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
             <CartesianGrid stroke="#000000" strokeDasharray="1 2" strokeWidth={1}/>
-            <Line type="monotone" dataKey={"Swine Flu"} stroke="#FF0000" yAxisId={0} dot={false} strokeWidth={1}
-                  legendType={"triangle"}/>
-            <Line type="monotone" dataKey={"SARS"} stroke="#00FF00" yAxisId={0} dot={false} strokeWidth={1}
-                  legendType={"star"}/>
-            <Line type="monotone" dataKey={"2019-nCoV"} stroke="#FFFF00" yAxisId={0} dot={false} strokeWidth={2} legendType={"circle"}/>
+            {activeKeys.includes("Swine Flu") && <Line type="monotone"
+                  dataKey={"Swine Flu"}
+                  stroke="#FF0000"
+                  yAxisId={0}
+                  dot={false}
+                  strokeWidth={1}
+                  legendType={"triangle"}
+            />}
+            {activeKeys.includes("SARS") && <Line type="monotone"
+                  dataKey={"SARS"}
+                  stroke="#00FF00"
+                  yAxisId={0}
+                  dot={false}
+                  strokeWidth={1}
+                  legendType={"star"}
+            />}
+            {activeKeys.includes("2019-nCoV") && <Line type="monotone"
+                  dataKey={"2019-nCoV"}
+                  stroke="#FFFF00"
+                  yAxisId={0}
+                  dot={false}
+                  strokeWidth={2}
+                  legendType={"circle"}
+            />}
             <Legend/>
         </LineChart>
         </ResponsiveContainer>
