@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from "react"
 import "./index.scss"
-import {Card, Col, Container, Form, FormCheck, FormGroup, Row} from "react-bootstrap";
+import {Card, CardDeck, Col, Container, Form, FormCheck, FormGroup, Row} from "react-bootstrap";
 import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer, YAxis, Label} from "recharts"
 import data from "../data.json"
 
@@ -84,7 +84,8 @@ export default function Index() {
                 <Col lg={6}><Chart showLog={showLog} title={`Infections`} id="chart" activeKeys={activeKeys} data={show45Days ? infected45 : infected100}/></Col>
             </Row>
             <Row>
-                <Col sm={4}>
+                <Col xs={12}>
+                    <CardDeck>
                     <Card>
                         <Card.Header>2019 Novel Coronavirus (2019-nCoV)</Card.Header>
                         <Card.Body>
@@ -92,26 +93,24 @@ export default function Index() {
                             <p>Source: <a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></p>
                         </Card.Body>
                     </Card>
-                </Col>
-                <Col sm={4}>
-                    <Card>
-                        <Card.Header>2003 SARS</Card.Header>
-                        <Card.Body>
-                            <p>Tracking started {data.trackingStarted['SARS']}</p>
-                            <p>Source: <a href={data.source['SARS']}>{data.source['SARS']}</a></p>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col sm={4}>
-                    <Card>
-                        <Card.Header>2009 Swine Flu</Card.Header>
-                        <Card.Body>
-                            <p>Tracking started {data.trackingStarted['Swine Flue']}</p>
-                            <p>Source: <a href={data.source['Swine Flue']}>{data.source['Swine Flue']}</a></p>
-                        </Card.Body>
-                    </Card>
+                        <Card>
+                            <Card.Header>2003 SARS</Card.Header>
+                            <Card.Body>
+                                <p>Tracking started {data.trackingStarted['SARS']}</p>
+                                <p>Source: <a href={data.source['SARS']}>{data.source['SARS']}</a></p>
+                            </Card.Body>
+                        </Card>
+                        <Card>
+                            <Card.Header>2009 Swine Flu</Card.Header>
+                            <Card.Body>
+                                <p>Tracking started {data.trackingStarted['Swine Flue']}</p>
+                                <p>Source: <a href={data.source['Swine Flue']}>{data.source['Swine Flue']}</a></p>
+                            </Card.Body>
+                        </Card>
+                    </CardDeck>
                 </Col>
             </Row>
+            <br/>
         </Container>
     )
 }
