@@ -48,8 +48,8 @@ export default function Index() {
             <Row>
                 <Col xs={12} sm={{span: 8, offset: 2}}>
                     <h1>2019 Novel Coronavirus (2019-nCoV)</h1>
-                    <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {data.lastUpdatedAt}.</p>
-                    <p><strong>
+                    <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {new Date(data.lastUpdatedAt).toLocaleString(undefined, {dateStyle: "full", timeStyle: "full"})}.</p>
+                <p><strong>
                         Due to the time difference between these disease outbreaks being on the order of years, it may
                         not be fair to make an 'apples to apples' comparison between them.
                         These charts are meant to be as informative as possible with the data we have at our disposal,
