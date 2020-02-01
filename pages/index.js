@@ -43,7 +43,7 @@ const calculate2 = (days, category) => {
 export default function Index() {
     const [showLog, setShowLog] = useState(false)
     const [activeKeys, setActiveKeys] = useState(keys);
-    const [show45Days, setShow45Days] = useState(false)
+    const [show45Days, setShow45Days] = useState(true)
 
     const death100 = useMemo(() => calculate(100, 'deaths'), [])
     const death45 = useMemo(() => calculate(45, 'deaths'), [])
