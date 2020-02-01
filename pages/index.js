@@ -164,7 +164,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     ticks={showLog ? [1,10,100,1000,10000,100000] : undefined}
                     domain={['auto', 'auto']}
                 >
-                    <Label value={'Infections'} fill="#636363" offset={5} angle={-90} position={"left"} textAnchor="end" />
+                    <Label value={showLog ? 'Cases' : 'Infections'} fill="#636363" offset={5} angle={-90} position={"left"} textAnchor="end" />
                 </YAxis>
                 <XAxis dataKey="name"/>
                 <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
@@ -174,7 +174,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     name={"Swine Flu"}
                     dataKey={"Swine Flu_deaths"}
                     stroke="#990000"
-                    yAxisId={"deaths"}
+                    yAxisId={showLog ? 'infections' : 'deaths'}
                     unit={" deaths"}
                     strokeDasharray="5 5"
                     dot={<CustomizedDot type={"triangle"} cross={true} />}
@@ -197,7 +197,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     dataKey={"SARS_deaths"}
                     name={"SARS"}
                     stroke="#009900"
-                    yAxisId={"deaths"}
+                    yAxisId={showLog ? 'infections' : 'deaths'}
                     strokeDasharray="5 5"
                     unit={" deaths"}
                     strokeWidth={1}
@@ -222,7 +222,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     dataKey={"2019-nCoV_deaths"}
                     stroke="#999900"
                     strokeDasharray="5 5"
-                    yAxisId={"deaths"}
+                    yAxisId={showLog ? 'infections' : 'deaths'}
                     unit={" deaths"}
                     dot={<CustomizedDot type={"circle"} />}
                     strokeWidth={2}
@@ -239,15 +239,15 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     strokeWidth={2}
                     legendType={"circle"}
                 />}
-                <YAxis
+                {!showLog && <YAxis
                     orientation={"right"}
-                    yAxisId={'deaths'}
+                    yAxisId={showLog ? 'infections' : 'deaths'}
                     allowDataOverflow
                     scale={showLog ? 'log' : 'linear'}
                     ticks={showLog ? [1,10,100,1000,10000,100000] : undefined}
                     domain={['auto', 'auto']}>
                     <Label value={'Deaths dashed'} angle={90} fill={"#636363"}  position={"right"} textAnchor="end" offset={5}/>
-                </YAxis>
+                </YAxis>}
                 <Legend/>
             </LineChart>
         </ResponsiveContainer>
