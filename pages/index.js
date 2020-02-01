@@ -46,51 +46,61 @@ export default function Index() {
         <Container>
             <br/>
             <Row>
-                <Col xs={12} sm={ { span: 8, offset: 2 }}>
-                <h1>2019 Novel Coronavirus (2019-nCoV)</h1>
-                <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {new Date(data.lastUpdatedAt).toLocaleString(undefined, {dateStyle: "full", timeStyle: "full"})}.</p>
+                <Col xs={12} sm={{span: 8, offset: 2}}>
+                    <h1>2019 Novel Coronavirus (2019-nCoV)</h1>
+                    <p style={{color: "#b4b4b4"}} className={"text-center"}>Last updated: {new Date(data.lastUpdatedAt).toLocaleString(undefined, {dateStyle: "full", timeStyle: "full"})}.</p>
                 <p><strong>
-                    Due to the time difference between these disease outbreaks being on the order of years, it may not be fair to make an 'apples to apples' comparison between them.
-                    These charts are merely be to as informative as possible with the data we have at our disposal, but should be viewed with an open mind as many factors may have changed over the time span of years.
-                </strong></p>
-            </Col>
+                        Due to the time difference between these disease outbreaks being on the order of years, it may
+                        not be fair to make an 'apples to apples' comparison between them.
+                        These charts are meant to be as informative as possible with the data we have at our disposal,
+                        but should be viewed with an open mind as many factors may have changed over the time span of
+                        years.
+                    </strong></p>
+                </Col>
                 <br/>
             </Row>
             <Row>
                 <Col xs={12}>
                     <Form inline className={"justify-content-around"}>
                         <FormGroup controlId="showSwineFlu">
-                            <FormCheck checked={activeKeys.includes("Swine Flu")} onChange={onToggle("Swine Flu")} label={"Show Swine Flu"} custom/>
+                            <FormCheck checked={activeKeys.includes("Swine Flu")} onChange={onToggle("Swine Flu")}
+                                       label={"Show Swine Flu"} custom/>
                         </FormGroup>
                         <FormGroup controlId="showSARS">
-                            <FormCheck checked={activeKeys.includes("SARS")} onChange={onToggle("SARS")} label={"Show SARS"} custom/>
+                            <FormCheck checked={activeKeys.includes("SARS")} onChange={onToggle("SARS")}
+                                       label={"Show SARS"} custom/>
                         </FormGroup>
                         <FormGroup controlId="show2019-nCoV">
-                            <FormCheck checked={activeKeys.includes("2019-nCoV")} onChange={onToggle("2019-nCoV")} label={"Show 2019-nCoV"} custom/>
+                            <FormCheck checked={activeKeys.includes("2019-nCoV")} onChange={onToggle("2019-nCoV")}
+                                       label={"Show 2019-nCoV"} custom/>
                         </FormGroup>
                         <FormGroup controlId="show45Days">
-                            <FormCheck checked={show45Days} onChange={() => setShow45Days(!show45Days)} label={"Show 45day chart"} custom/>
+                            <FormCheck checked={show45Days} onChange={() => setShow45Days(!show45Days)}
+                                       label={"Show 45day chart"} custom/>
                         </FormGroup>
                         <FormGroup controlId="showLog">
-                            <FormCheck checked={showLog} onChange={() => setShowLog(!showLog)} label={"Use log scale"} custom/>
+                            <FormCheck checked={showLog} onChange={() => setShowLog(!showLog)} label={"Use log scale"}
+                                       custom/>
                         </FormGroup>
                     </Form>
-            </Col></Row>
+                </Col></Row>
             <br/><br/>
             <Row>
-                <Col lg={6}><Chart showLog={showLog} title={`Deaths`} id="chart" activeKeys={activeKeys} data={show45Days ? death45 : death100}/></Col>
-                <Col lg={6}><Chart showLog={showLog} title={`Infections`} id="chart" activeKeys={activeKeys} data={show45Days ? infected45 : infected100}/></Col>
+                <Col lg={6}><Chart showLog={showLog} title={`Deaths`} id="chart" activeKeys={activeKeys}
+                                   data={show45Days ? death45 : death100}/></Col>
+                <Col lg={6}><Chart showLog={showLog} title={`Infections`} id="chart" activeKeys={activeKeys}
+                                   data={show45Days ? infected45 : infected100}/></Col>
             </Row>
             <Row>
                 <Col xs={12}>
                     <CardDeck>
-                    <Card>
-                        <Card.Header>2019 Novel Coronavirus (2019-nCoV)</Card.Header>
-                        <Card.Body>
-                            <p>Tracking started {data.trackingStarted['2019-nCoV']}</p>
-                            <p>Source: <a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></p>
-                        </Card.Body>
-                    </Card>
+                        <Card>
+                            <Card.Header>2019 Novel Coronavirus (2019-nCoV)</Card.Header>
+                            <Card.Body>
+                                <p>Tracking started {data.trackingStarted['2019-nCoV']}</p>
+                                <p>Source: <a href={data.source['2019-nCoV']}>{data.source['2019-nCoV']}</a></p>
+                            </Card.Body>
+                        </Card>
                         <Card>
                             <Card.Header>2003 SARS</Card.Header>
                             <Card.Body>
