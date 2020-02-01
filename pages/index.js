@@ -3,8 +3,6 @@ import "./index.scss"
 import {Card, CardDeck, Col, Container, Form, FormCheck, FormGroup, Row} from "react-bootstrap";
 import {LineChart, Tooltip, XAxis, CartesianGrid, Line, Legend, ResponsiveContainer, YAxis, Label} from "recharts"
 import data from "../data.json"
-import { scaleLog } from 'd3-scale';
-const scale = scaleLog().base(10);
 const keys = ["2019-nCoV", "Swine Flu", "SARS"]
 
 const calculate = (days, category) => {
@@ -117,7 +115,7 @@ export default function Index() {
                 </Col>
                 <Col lg={6}><Chart showLog={showLog} title={`Infections`} id="chart" activeKeys={activeKeys}
                                    data={show45Days ? infected45 : infected100}/></Col>
-                <Col lg={12}><Chart2 showLog={showLog} title={`Coronavirus growth`} activeKeys={activeKeys}
+                <Col lg={12}><Chart2 showLog={showLog} title={`Infection vs Deceased (dashed line)`} activeKeys={activeKeys}
                                      data={show45Days ? data45 : data100}/></Col>
             </Row>
             <Row>
@@ -175,7 +173,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     dataKey={"Swine Flu_deaths"}
                     stroke="#990000"
                     yAxisId={showLog ? 'infections' : 'deaths'}
-                    unit={" deaths"}
+                    unit={" deceased"}
                     strokeDasharray="5 5"
                     dot={<CustomizedDot type={"triangle"} cross={true} />}
                     strokeWidth={1}
@@ -187,7 +185,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     dataKey={"Swine Flu_infected"}
                     stroke="#FF0000"
                     yAxisId={"infections"}
-                    unit={" infections"}
+                    unit={" infected"}
                     dot={<CustomizedDot type={"triangle"} />}
                     strokeWidth={1}
                     legendType={"triangle"}
@@ -199,7 +197,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     stroke="#009900"
                     yAxisId={showLog ? 'infections' : 'deaths'}
                     strokeDasharray="5 5"
-                    unit={" deaths"}
+                    unit={" deceased"}
                     strokeWidth={1}
                     dot={<CustomizedDot type={"star"} />}
                     legendType={"none"}
@@ -210,7 +208,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     name={"SARS"}
                     stroke="#00FF00"
                     yAxisId={"infections"}
-                    unit={" infections"}
+                    unit={" infected"}
                     dot={<CustomizedDot type={"star"} />}
                     strokeWidth={1}
                     legendType={"star"}
@@ -223,7 +221,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     stroke="#999900"
                     strokeDasharray="5 5"
                     yAxisId={showLog ? 'infections' : 'deaths'}
-                    unit={" deaths"}
+                    unit={" deceased"}
                     dot={<CustomizedDot type={"circle"} />}
                     strokeWidth={2}
                     legendType={"none"}
@@ -234,7 +232,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     dataKey={"2019-nCoV_infected"}
                     stroke="#FFFF00"
                     yAxisId={"infections"}
-                    unit={" infections"}
+                    unit={" infected"}
                     dot={<CustomizedDot type={"circle"} />}
                     strokeWidth={2}
                     legendType={"circle"}
@@ -246,7 +244,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     scale={showLog ? 'log' : 'linear'}
                     ticks={showLog ? [1,10,100,1000,10000,100000] : undefined}
                     domain={['auto', 'auto']}>
-                    <Label value={'Deaths dashed'} angle={90} fill={"#636363"}  position={"right"} textAnchor="end" offset={5}/>
+                    <Label value={'Deceased (dashed)'} angle={90} fill={"#636363"}  position={"right"} textAnchor="end" offset={5}/>
                 </YAxis>}
                 <Legend/>
             </LineChart>
