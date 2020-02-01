@@ -167,7 +167,7 @@ const Chart2 = ({title, data, activeKeys, showLog}) => {
                     <Label value={showLog ? 'Cases' : 'Infections'} fill="#636363" offset={5} angle={-90} position={"left"} textAnchor="end" />
                 </YAxis>
                 <XAxis dataKey="name"/>
-                <Tooltip allowEscapeViewBox={{x:true, y:true}}/>
+                <Tooltip/>
                 <CartesianGrid stroke="#636363" strokeDasharray="1 2" strokeWidth={1}/>
                 {activeKeys.includes("Swine Flu") && <Line
                     type="monotone"
